@@ -1,0 +1,36 @@
+[submodule "CTFd-multi-answer"]
+	path = CTFd-multi-answer
+	url = https://github.com/wroersma/CTFd-multi-answer
+[submodule "CTFd-S3-plugin"]
+	path = CTFd-S3-plugin
+	url = git@github.com:CTFd/CTFd-S3-plugin.git
+[submodule "CTFd-Notify"]
+	path = CTFd-Notify
+	url = git@github.com:CTFd/CTFd-Notify.git
+[submodule "CTFd-Docker"]
+	path = CTFd-Docker
+	url = https://github.com/CTFd/CTFd-Docker
+[submodule "DynamicValueChallenge"]
+	path = DynamicValueChallenge
+	url = https://github.com/CTFd/DynamicValueChallenge.git
+[submodule "portable-challenges-plugin"]
+	path = portable-challenges-plugin
+	url = https://github.com/tamuctf/ctfd-portable-challenges-plugin.git
+[submodule "recaptcha-plugin"]
+	path = recaptcha-plugin
+	url = https://github.com/tamuctf/ctfd-recaptcha-plugin.git
+[submodule "ctfd-matrix-scoreboard-plugin"]
+	path = ctfd-matrix-scoreboard-plugin
+	url = https://github.com/itsZN/ctfd-matrix-scoreboard-plugin.git
+[submodule "CTFd_hash_crack_king"]
+	path = CTFd_hash_crack_king
+	url = https://github.com/jtylers/CTFd_hash_crack_king.git
+[submodule "CTFd-multi-question-plugin"]
+	path = CTFd-multi-question-plugin
+	url = https://github.com/tamuctf/CTFd-multi-question-plugin.git
+[submodule "ctfd-challenge-dependencies"]
+	path = ctfd-challenge-dependencies
+	url = https://github.com/narhen/ctfd-challenge-dependencies.git
+[submodule "CTFdOnlineChallenge"]
+	path = CTFdOnlineChallenge
+	url = https://github.com/XuCcc/CTFdOnlineChallenge.git

@@ -1,0 +1,147 @@
+{% extends "admin/base.html" %}
+
+{% block stylesheets %}
+<style>
+.btn-primary { background-color: #5E6E6E; }
+.btn-danger { background-color: #500000; }
+.col-md-4 { margin-bottom: 15px; }
+.key-remove-button { margin-top: 10px; }
+.delete-tag { color: white; margin-left: 3px; cursor: pointer; }
+
+/*Reference for switch: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #af3232;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #32af32;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #32af32;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+	<input type="hidden" value="{{ nonce }}" id="nonce">
+
+
+	<div id="update-challenge" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="chal-title text-center"></h3>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ request.script_root }}/admin/discoveryList/{{ 0 }}">
+                        <input name='nonce' type='hidden' value="{{ nonce }}">
+
+                        <div class="form-group">
+                            <label for="name">Name
+                                <i class="fa fa-question-circle gray-text" data-toggle="tooltip" data-placement="right" title="The name of your challenge"></i>
+                            </label>
+                            <input type="text" class="form-control chal-name" name="name" placeholder="Enter challenge name">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category
+                                <i class="fa fa-question-circle gray-text" data-toggle="tooltip" data-placement="right" title="The category of your challenge"></i>
+                            </label>
+                            <input type="text" class="form-control chal-category" name="category" placeholder="Enter challenge category">
+                        </div>
+
+                        
+                        <input class="chal-id" type='visible' name='id' placeholder='ID'>
+
+
+                        
+                    </form>
+                    <div class="modal-header text-center">
+                    <h3>Discovery</h3>
+                    </div>
+                    <div class="form-group">
+                    <p> At least one dropdown menu will need ALL selected challenges in it to be solved before this challenge.</p>
+                    <a href="#" id="create-discovery" class="btn btn-primary" style="margin-bottom:15px;">New Discovery</a>
+                </div>
+            </div>
+                
+                <input name='nonce' type='hidden' value="{{ nonce }}">
+                <input id="discoveryList-chal" name='chal' type='hidden' value="{{ id }}">
+                <div id="current-discoveryList""></div>
+                <br/>
+                <div id="chal-discoveryList"">
+                </div>
+                <br/>
+                <div class="row" style="text-align:center;margin-top:20px">
+                    <input type="hidden" value="{{ nonce }}" name="nonce" id="nonce">
+                    <div class="form-group">
+                        <button class="btn btn-theme btn-outlined" id="submit-discoveryList" type="submit">Update</button>
+                     </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+	<div style="text-align:center">
+		<br>
+		<h1 class="text-center">Challenge Discovery</h1>
+
+                <div>
+			<table id='challenges2'>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+        <script src="{{ request.script_root }}/plugins/discovery/config.js"></script>
+        <script src="{{ request.script_root }}/themes/admin/static/js/chalboard.js"></script>
+        <!-- <script src="{{ request.script_root }}/plugins/discovery/config.js"></script> -->
+
+{% endblock %}

@@ -54,6 +54,7 @@ class Challenges(db.Model):
     max_attempts = db.Column(db.Integer, default=0)
     value = db.Column(db.Integer)
     category = db.Column(db.String(80))
+    category2 = db.Column(db.String(80))
     type = db.Column(db.String(80))
     hidden = db.Column(db.Boolean)
     __mapper_args__ = {
@@ -61,11 +62,12 @@ class Challenges(db.Model):
         'polymorphic_on': type
     }
 
-    def __init__(self, name, description, value, category, type='standard'):
+    def __init__(self, name, description, value, category, category2, type='standard'):
         self.name = name
         self.description = description
         self.value = value
         self.category = category
+        self.category2 = category2
         self.type = type
 
     def __repr__(self):

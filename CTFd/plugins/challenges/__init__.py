@@ -39,6 +39,7 @@ class CTFdStandardChallenge(BaseChallenge):
             description=request.form['description'],
             value=request.form['value'],
             category=request.form['category'],
+            category2=request.form['category2'],
             type=request.form['chaltype']
         )
 
@@ -81,6 +82,7 @@ class CTFdStandardChallenge(BaseChallenge):
             'value': challenge.value,
             'description': challenge.description,
             'category': challenge.category,
+            'category2': challenge.category2,
             'hidden': challenge.hidden,
             'max_attempts': challenge.max_attempts,
             'type': challenge.type,
@@ -108,6 +110,7 @@ class CTFdStandardChallenge(BaseChallenge):
         challenge.value = int(request.form.get('value', 0)) if request.form.get('value', 0) else 0
         challenge.max_attempts = int(request.form.get('max_attempts', 0)) if request.form.get('max_attempts', 0) else 0
         challenge.category = request.form['category']
+        challenge.category2 = request.form['category2']
         challenge.hidden = 'hidden' in request.form
         db.session.commit()
         db.session.close()
