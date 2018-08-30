@@ -241,7 +241,7 @@ function loadchals(cb) {
         var categories = [];
         challenges = $.parseJSON(JSON.stringify(data));
 
-        $('#challenges-board').empty();
+        // $('#challenges-board').empty();
 
         for (var i = challenges['game'].length - 1; i >= 0; i--) {
             challenges['game'][i].solves = 0;
