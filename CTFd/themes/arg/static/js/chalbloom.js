@@ -241,7 +241,8 @@ function loadchals(cb) {
         var categories = [];
         challenges = $.parseJSON(JSON.stringify(data));
 
-        // $('#challenges-board').empty();
+        $('#challenges-board').empty();
+        loopcount = 0;
 
         for (var i = challenges['game'].length - 1; i >= 0; i--) {
             challenges['game'][i].solves = 0;
@@ -250,48 +251,60 @@ function loadchals(cb) {
                 categories.push(category);
 
                 var categoryid = category.replace(/ /g,"-").hashCode();
-                var categoryrow = $('' +
-                    '<div id="{0}-row" class="item   pt-5">'.format(categoryid) +
-                        '<div class="category-header col-md-12 mb-3">' +
-                        '</div>' +
-                        '<div class="category-challenges col-md-12">' +
-                            '<div class="challenges-row col-md-12"></div>' +
-                        '</div>' +
-                    '</div>');
-                categoryrow.find(".category-header").append($("<img height=100px src=\"themes/arg/static/img/challenge_imgs/"+ category +".jpg\" alt=\"" + category + "\"></img>"));
+                if (category == 'The Fool') {
+                    var categoryrow = $('' +
+                        '<div id="{0}-row" class="carousel-item active">'.format(categoryid) +
+                            '<div class="category-header d-flex justify-content-center">' +
+                            '</div>' +
+                            '<div class="category-challenges justify-content-center">' +
+                                '<div class="challenges-row d-flex justify-content-center"></div>' +
+                            '</div>' +
+                        '</div>');
+                } else {
+                    var categoryrow = $('' +
+                        '<div id="{0}-row" class="carousel-item">'.format(categoryid) +
+                            '<div class="category-header d-flex justify-content-center">' +
+                            '</div>' +
+                            '<div class="category-challenges justify-content-center">' +
+                                '<div class="challenges-row d-flex justify-content-center"></div>' +
+                            '</div>' +
+                        '</div>');
+                }
+                categoryrow.find(".category-header").append($("<img height=200px src=\"themes/arg/static/img/challenge_imgs/"+ category +".jpg\" alt=\"" + category + "\"></img>"));
 
                 $('#challenges-board').append(categoryrow);
+                loopcount = loopcount + 1;
             }
         }
 
-        // for (var i = 0; i <= challenges['game'].length - 1; i++) {
-        //     var chalinfo = challenges['game'][i];
-        //     var challenge = chalinfo.category.replace(/ /g,"-").hashCode();
-        //     var chalid = chalinfo.name.replace(/ /g,"-").hashCode();
-        //     var catid = chalinfo.category.replace(/ /g,"-").hashCode();
-        //     var chalwrap = $("<div id='{0}' class='col-md-3 d-inline-block'></div>".format(chalid));
+        for (var i = 0; i <= challenges['game'].length - 1; i++) {
+            var chalinfo = challenges['game'][i];
+            var challenge = chalinfo.category.replace(/ /g,"-").hashCode();
+            var chalid = chalinfo.name.replace(/ /g,"-").hashCode();
+            var catid = chalinfo.category.replace(/ /g,"-").hashCode();
+            var chalwrap = $("<div id='{0}' class='col-md-3 d-inline-block'></div>".format(chalid));
 
-        //     if (user_solves.indexOf(chalinfo.id) == -1){
-        //         var chalbutton = $("<button class='btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2' value='{0}'></button>".format(chalinfo.id));
-        //     } else {
-        //         var chalbutton = $("<button class='btn btn-dark challenge-button solved-challenge w-100 text-truncate pt-3 pb-3 mb-2' value='{0}'><i class='fas fa-check corner-button-check'></i></button>".format(chalinfo.id));
-        //     }
+            if (user_solves.indexOf(chalinfo.id) == -1){
+                var chalbutton = $("<button class='btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2' value='{0}'></button>".format(chalinfo.id));
+            } else {
+                var chalbutton = $("<button class='btn btn-dark challenge-button solved-challenge w-100 text-truncate pt-3 pb-3 mb-2' value='{0}'><i class='fas fa-check corner-button-check'></i></button>".format(chalinfo.id));
+            }
 
-        //     var chalheader = $("<p>{0}</p>".format(chalinfo.name));
-        //     var chalscore = $("<span>{0}</span>".format(chalinfo.value));
-        //     for (var j = 0; j < chalinfo.tags.length; j++) {
-        //         var tag = 'tag-' + chalinfo.tags[j].replace(/ /g, '-');
-        //         chalwrap.addClass(tag);
-        //     }
+            var chalheader = $("<p>{0}</p>".format(chalinfo.name));
+            var chalscore = $("<span>{0}</span>".format(chalinfo.value));
+            for (var j = 0; j < chalinfo.tags.length; j++) {
+                var tag = 'tag-' + chalinfo.tags[j].replace(/ /g, '-');
+                chalwrap.addClass(tag);
+            }
 
-        //     chalbutton.append(chalheader);
-        //     chalbutton.append(chalscore);
-        //     chalwrap.append(chalbutton);
+            chalbutton.append(chalheader);
+            chalbutton.append(chalscore);
+            chalwrap.append(chalbutton);
 
-        //     $("#"+ catid +"-row").find(".category-challenges > .challenges-row").append(chalwrap);
-        // };
+            $("#"+ catid +"-row").find(".category-challenges > .challenges-row").append(chalwrap);
+        };
 
-        // marksolves();
+        marksolves();
 
         $('.challenge-button').click(function (e) {
             loadchal(this.value);

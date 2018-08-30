@@ -19,8 +19,12 @@
     background-color: #5B7290 !important;
 }
 
+.category-header {
+    padding: 1em;
+}
+
 .challenge-button {
-    box-shadow: 3px 3px 3px grey;
+    border: 1px dotted;
 }
 
 .solved-challenge {
