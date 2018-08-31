@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/img/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/img/favicon.ico" type="image/x-icon">
-		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/vendor/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/vendor/font-awesome/fontawesome-fonts.css" type='text/css'>
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/vendor/font-awesome/fontawesome-all.css" type='text/css'>
@@ -33,19 +32,13 @@
 		</script>
 </head>
 <body>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/jquery.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/markdown-it.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/bootstrap.bundle.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/style.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/ezq.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/console-messenger.js"></script>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a href="{{ request.script_root }}/" class="navbar-brand">
 				{% if ctf_logo() %}
 				<img class="img-responsive ctf_logo" src="{{ request.script_root }}/files/{{ ctf_logo() }}" height="25" alt="{{ ctf_name() }}">
 				{% else %}
-				{{ ctf_name() }} :~$
+				{{ ctf_name() }}
 				{% endif %}
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
@@ -73,16 +66,16 @@
 
 					{% if not get_config('workshop_mode') %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/teams">[users]</a>
-						</li> 
+							<a class="nav-link" href="{{ request.script_root }}/teams">Teams</a>
+						</li>
 					{% endif %}
 					{% if not hide_scores() %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/scoreboard">[leaderboard]</a>
+							<a class="nav-link" href="{{ request.script_root }}/scoreboard">Scoreboard</a>
 						</li>
 					{% endif %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ request.script_root }}/challenges">[missions]</a>
+						<a class="nav-link" href="{{ request.script_root }}/challenges">Challenges</a>
 					</li>
 				</ul>
 
@@ -92,29 +85,29 @@
 					{% if username is defined %}
 						{% if admin %}
 							<li class="nav-item">
-								<a class="nav-link" href="{{ request.script_root }}/admin">[admin]</a>
+								<a class="nav-link" href="{{ request.script_root }}/admin">Admin</a>
 							</li>
 						{% endif %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/team">[user]</a>
+							<a class="nav-link" href="{{ request.script_root }}/team">Team</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/profile">[profile]</a>
+							<a class="nav-link" href="{{ request.script_root }}/profile">Profile</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/logout">[logout]</a>
+							<a class="nav-link" href="{{ request.script_root }}/logout">Logout</a>
 						</li>
 					{% else %}
 						{% if can_register() %}
 							<li class="nav-item">
-								<a class="nav-link" href="{{ request.script_root }}/register">[register]</a>
+								<a class="nav-link" href="{{ request.script_root }}/register">Register</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link d-none d-md-block d-lg-block">|</a>
 							</li>
 						{% endif %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/login">[authenticate]</a>
+							<a class="nav-link" href="{{ request.script_root }}/login">Login</a>
 						</li>
 					{% endif %}
 				</ul>
@@ -128,13 +121,18 @@
 	</main>
 
 	<footer class="footer">
-		<div class="container text-left">
+		<div class="container text-center">
 			<a href="https://ctfd.io">
 				<small class="text-muted">Powered by CTFd</small>
 			</a>
 		</div>
 	</footer>
 
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/jquery.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/markdown-it.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/style.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/ezq.js"></script>
 	{% block scripts %}
 	{% endblock %}
 

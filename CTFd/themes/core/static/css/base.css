@@ -1,14 +1,11 @@
 html, body, .container {
-    font-family: 'Source Code Pro', monospace;
-    text-align: left;
-    background-color: #343a40;
-    color: #fff;
+    font-family: 'Lato', 'LatoOffline', sans-serif;
 }
 
 h1, h2 {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Raleway', 'RalewayOffline', sans-serif;
     font-weight: 500;
-    font-size: 1.25rem
+    letter-spacing: 2px;
 }
 
 a {
@@ -28,13 +25,9 @@ table > thead > tr > td {
     clear: both;
 }
 
-.navbar-brand {
-    font-size: 1rem
-}
-
 .fa-spin.spinner {
     margin-top: 225px;
-    text-align: left;
+    text-align: center;
     opacity: 0.5;
 }
 
@@ -48,8 +41,7 @@ table > thead > tr > td {
     background-color: #343a40;
     color: #FFF;
     border-radius: 0;
-    text-align: left;
-    padding: 2rem 0rem;
+    text-align: center;
 }
 
 .form-control {
@@ -57,10 +49,10 @@ table > thead > tr > td {
     display: block;
     padding: 0.8em;
     border-radius: 0;
-    background-color: transparent;
-    color: #fff;
+    background: #f0f0f0;
+    color: #aaa;
     font-weight: 400;
-    font-family: 'Source Code Pro', monospace;
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-appearance: none;
 }
 
@@ -69,7 +61,6 @@ table > thead > tr > td {
     border-color: #a3d39c;
     box-shadow: 0 0 0 0.2rem #a3d39c;
     transition: background-color 0.3s, border-color 0.3s;
-    color: #fff;
 }
 
 .input-filled-valid {
@@ -137,14 +128,4 @@ table > thead > tr > td {
 
 .cursor-help {
     cursor: help;
-}
-
-.intro {
-    background-color: #343a40;
-    color: #fff;
-    padding-left: 1em;
-}
-
-.intro p { 
-    font-size: 1rem;
 }

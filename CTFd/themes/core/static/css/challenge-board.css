@@ -9,7 +9,6 @@
     max-width: 1000px;
     padding: 1em;
     margin: 0 auto;
-    background-color: #343a40;
 }
 
 .btn-info {
@@ -20,21 +19,8 @@
     background-color: #5B7290 !important;
 }
 
-.close {
-    color: #fff;
-}
-
-.category-header {
-    padding: 1em;
-}
-
-.challenges-row {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
 .challenge-button {
-    border: 1px dotted;
+    box-shadow: 3px 3px 3px grey;
 }
 
 .solved-challenge {
