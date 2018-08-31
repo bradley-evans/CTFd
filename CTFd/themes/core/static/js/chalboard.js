@@ -258,9 +258,10 @@ function loadchals(cb) {
                             '<div class="challenges-row col-md-12"></div>' +
                         '</div>' +
                     '</div>');
-                categoryrow.find(".category-header").append($("<h3>"+ category +"</h3>"));
+                categoryrow.find(".category-header").append($("<img height=100px src=\"themes/arg/static/img/challenge_imgs/"+ category +".jpg\" alt=\"" + category + "\"></img>"));
 
                 $('#challenges-board').append(categoryrow);
+                console.log(categoryrow);
             }
         }
 

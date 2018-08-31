@@ -69,3 +69,4 @@ CTFd/uploads
 
 # CTFd Exports
 *.zip
+events.json

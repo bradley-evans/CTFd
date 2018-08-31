@@ -33,6 +33,12 @@
 		</script>
 </head>
 <body>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/jquery.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/markdown-it.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/style.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/ezq.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/console-messenger.js"></script>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a href="{{ request.script_root }}/" class="navbar-brand">
@@ -129,11 +135,6 @@
 		</div>
 	</footer>
 
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/jquery.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/markdown-it.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/bootstrap.bundle.min.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/style.js"></script>
-	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/ezq.js"></script>
 	{% block scripts %}
 	{% endblock %}
 

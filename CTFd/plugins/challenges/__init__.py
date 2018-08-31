@@ -105,6 +105,7 @@ class CTFdStandardChallenge(BaseChallenge):
         :param request:
         :return:
         """
+        print(request.form)
         challenge.name = request.form['name']
         challenge.description = request.form['description']
         challenge.value = int(request.form.get('value', 0)) if request.form.get('value', 0) else 0

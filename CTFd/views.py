@@ -46,9 +46,12 @@ def setup():
                     <p>
                         the console will set you free
                     </p>
+                    <script>
+                        console_message('ef98fe223e630bbb82dd9c41323e3290')
+                    </script>
                     <br>
                 </div>
-</div>""".format(request.script_root)
+            </div>""".format(request.script_root)
 
             page = Pages(title=None, route='index', html=index, draft=False)
 
@@ -305,3 +308,22 @@ def themes_handler(theme, path):
         return send_file(filename)
     else:
         abort(404)
+
+@views.route('/cli_msg/<msg_id>')
+def console_messenger(msg_id):
+    import json
+    import md5
+    try:
+        with open('events.json') as f:
+            events = json.load(f)
+        output = events['message'][msg_id]
+    except KeyError:
+        output = 'Job 38:11'
+    return output
+
+@views.route('/hashgen/<msg_id>')
+def hash_generator(msg_id):
+    import md5
+    seed = 'ucr-darknet' + msg_id
+    output = md5.new(seed).hexdigest()
+    return output
